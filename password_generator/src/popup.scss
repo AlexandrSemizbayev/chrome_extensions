@@ -1,0 +1,49 @@
+@use "sass:meta";
+
+$duration: 0.6s;
+
+@mixin generatePopUpType($args...) {
+  @each $type,$color in meta.keywords($args) {
+    .#{$type} {
+      color: $color;
+      border: 1px solid $color;
+    }
+  }
+}
+
+@include generatePopUpType(
+  $warning: #ffc804,
+  $error: #ff3204,
+  $success: #01d653
+);
+
+.pop-up {
+  position: fixed;
+  bottom: 0%;
+  height: 10%;
+  background-color: #242424;
+  border-radius: 10px 10px 0% 0%;
+  border-bottom: none;
+  display: flex;
+  opacity: 1;
+  justify-content: center;
+  animation: easeIn $duration ease-in-out;
+  transition: all $duration ease-in-out;
+  &-text {
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: .5em 2em;
+  }
+}
+
+.fade {
+  bottom: -100%;
+}
+
+.fade-fast {
+  transition: all calc($duration / 2) ease-in-out;
+}
+
+@keyframes easeIn {
+  from { bottom: -100%;} to {bottom: 0%;}
+}

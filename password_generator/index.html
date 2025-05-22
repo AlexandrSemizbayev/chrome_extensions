@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/src/customQuery.ts" defer></script>
+    <title>Password generator</title>
+  </head>
+  <body>
+    <div id="app">
+        <div class="output">
+          <p class="generated-password">&NoBreak;</p>
+        </div>
+        <form class="options" action="#">
+          <label>Include Digits
+            <input type="checkbox" name="includeDigits" id="digits" checked>
+          </label>
+          <label>Include Special Charachters
+            <input type="checkbox" name="includeChars" id="chars" checked>
+          </label>
+          <label>Include Letters
+            <input type="checkbox" name="includeLetters" id="letters" checked>
+          </label>
+          <label id="range">Length &nbsp;<span id="length">20</span> &nbsp;
+            <input type="range" min="1" max="100" value="20" name="requestedLength">
+          </label>
+          <button type="submit" id="submit-form"> Generate </button>
+          <div id="form-check-failure" style="opacity: 0;">
+            <span>At least one checkbox must be checked</span>
+          </div>
+        </form>
+      
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
